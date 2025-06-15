@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:ital,wght@0,300..900;1,300..900&family=Signika+Negative:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: "Caprasimo", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 1fr 1fr; */
+    align-items: center;
+    /* margin: 50px; */
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 160px 0 50px 0;
+
+}
+
+#photo-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 430px;
+    border: 1px solid rgb(174, 171, 171);
+    /* transform: translate(100%, 20px); */
+    margin: 160px 0 0px 0;
+
+    /* cho layout vào giữa để cân bằng khung hình */
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 3px rgb(110, 108, 108);
+    background-image: url('photos/templete.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 800px 50px #FFB5C8;
+
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 100px;
+    font-size: 1.4rem;
+    z-index: 1;
+}
+
+.options {
+    display: grid;
+  grid-template-columns: 1fr 1fr; /* hoặc 2fr 2fr tùy bạn */
+  row-gap: 5px;   /* khoảng cách theo chiều dọc */
+  column-gap: 10px;
+}
+.options button {
+  margin: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        height: 100%;
+    }
+
+    #photo-layout {
+        width: 90%;
+        transform: translate(0, 0);
+        /* reset transform nếu cần */
+        /* width: 460px; */
+        margin: 0px;
+    }
+    button#download {
+        margin: 20px 0 0 0;
+    }
+
+}
+
+button {
+    font-family: "Figtree", sans-serif;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 1;
+    background-color: #fff;
+    width: 160px;
+    height: 70px;
+    text-align: center;
+    border-radius: 25px;
+    transition: all 0.2s ease-in-out;
+    /* margin: 0 0 50px 0; */
+}
+
+
+button:hover {
+    background-color: #ffb5c8;
+    /* Change background color on hover */
+    font-weight: 400;
+    color: #fff;
+    /* Change text color on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+}
+
+.photostrip {
+    display: flex;
+    flex-direction: column;
+}
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* hoặc 2fr 2fr tùy bạn */
+  row-gap: 5px;   /* khoảng cách theo chiều dọc */
+  column-gap: 10px; /* khoảng cách ngang giữa các cột */
+  justify-items: center;
+  padding: 10px;
+}
+
+.options button {
+  /* margin: 0; */
+  /* padding: 6px 12px; */
+}
+
+/* Animation khi mới load */
+#photo-layout {
+    transform: translateY(-1500px);
+    transition: transform 3.5s ease-in-out;
+}
+
+#photo-layout.visible {
+    transform: translateY(0);
+}

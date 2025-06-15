@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Signika+Negative:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-family: "Caprasimo", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: #f5f5f5;
+}
+
+.container {
+    transform: translate(0, 50px);
+    position: fixed;
+}
+
+.container.grid-layout {
+    position: fixed;
+    transform: translate(0, 20px);
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-radius: 12px;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0 20px;
+}
+
+.stream,
+.preview {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+
+}
+
+.stream {
+    display: grid;
+    gap: 30px;
+}
+
+
+#photos {
+    display: flex;
+    flex-direction: column;
+}
+
+video {
+    overflow: hidden;
+    height: 430px;
+    width: 570px;
+    border: 2px solid #0d0d0d;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 0 800px 50px #FFB5C8;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+button {
+    height: 50px;
+    width: 200px;
+}
+
+#photos {
+    margin: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.photo {
+    margin: 10px;
+    position: relative;
+}
+
+.photo img {
+    height: 130px;
+    width: 175px;
+    border: 2px solid #0d0d0d;
+}
+
+#capture-btn {
+    width: 160px;
+    height: 50px;
+    border-radius: 30px;
+    transition: .3s ease-in-out;
+    font-family: "Signika Negative", sans-serif;
+    font-size: 15px;
+}
+
+.selector-title {
+    font-family: "Signika Negative", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.wrap-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#capture-btn:hover {
+    transform: scale(1.05);
+}
+
+.video-wraper {
+    display: block;
+    position: relative;
+}
+
+#countdownnum {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4f75c6;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Nền bán trong suốt */
+    backdrop-filter: blur(2px);
+    /* Làm mờ nền phía sau */
+    -webkit-backdrop-filter: blur(2px);
+    display: none;
+}
+
+#Time {
+    width: 40px;
+    border-radius: 10px;
+}
+
+

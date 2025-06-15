@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Photobooth.css">
+    
+    <title>Photo Booth</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="stream">
+            <h1>Photobooth</h1>
+            <div class="video-wraper">
+                <video autoplay id="video"></video>
+                <div id="countdownnum">2</div>
+            </div>
+
+            <div class="controls">
+                <div class="wrap-selector">
+                    <div class="selector-title">Count Down Time: </div>
+                <select class="select-box" id="Time">
+                    <option value="3">3s</option>
+                    <option value="5">5s</option>
+                    <option value="10">10s</option>
+                </select>
+                </div>
+
+                <button id="capture-btn">Start Capture</button>
+            </div>
+        </div>
+        <div class="preview">
+            <div id="photos"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

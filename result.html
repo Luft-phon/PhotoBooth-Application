@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="result.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="right">
+        </div>
+        <div class="middle">
+            <div class="title">Photo is printing ...</div>
+            <div id="photo-layout"></div>
+            <button style="margin: 20px;" id="download">Collect Photo</button>
+        </div>
+        <div class="right">
+            <div class="sub-title">Customize your strip</div>
+            <div class="photostrip">
+                <div class="photoStrip-title"></div>
+                <div class="options">
+                    <button id="paper">Paper</button>
+                    <button id="templete">Templete 1</button> 
+                    <button id="templete">Templete 1</button>
+                    <button id="templete">Templete 1</button>
+                    <button id="templete">Templete 1</button>
+                    <button id="templete">Templete 1</button>
+                    <button id="templete">Templete 1</button>
+                    <button id="templete">Templete 1</button>
+
+                </div>
+            </div>
+
+            <input type="color" id="colorPicker"
+                style="width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 2px solid rgb(204, 204, 204);">
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        const savedPhotos = JSON.parse(localStorage.getItem('photos')) || [];
+
+        const gallery = document.getElementById('photo-layout');
+        savedPhotos.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.style.width = '280px';
+            img.style.margin = '10px 20px';
+            gallery.appendChild(img);
+        });
+        gallery.style.padding = '20px';
+
+        // Xóa bộ nhớ nếu cần
+        // localStorage.removeItem('photos');
+
+        document.getElementById("download").addEventListener("click", () => {
+            const layout = document.getElementById("photo-layout");
+
+            html2canvas(layout, {
+                backgroundColor: "white", // giữ nguyên nền trong suốt nếu có
+                scale: 4, // nâng chất lượng ảnh
+            }).then(canvas => {
+                const jpgData = canvas.toDataURL("image/jpeg", 0.95);
+
+                const link = document.createElement("a");
+                link.href = jpgData;
+                link.download = "PhonBooth.jpg";
+                link.click();
+            });
+            // localStorage.removeItem('photos');
+
+        });
+
+        document.getElementById("paper").addEventListener('click', () => {
+            document.getElementById("photo-layout").style.backgroundImage = "url('photos/paper.jpg')";
+        });
+        document.getElementById("templete").addEventListener('click', () => {
+            document.getElementById("photo-layout").style.backgroundImage = "url('photos/templete.jpg')";
+        });
+        const picker = document.getElementById("colorPicker");
+
+        picker.addEventListener("input", () => {
+            const selectedColor = picker.value;
+            document.getElementById("photo-layout").style.backgroundColor = selectedColor;
+            document.getElementById("photo-layout").style.backgroundImage = "none";
+        });
+
+
+        //sau khi mới load trang
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log("loading");
+            const layout = document.getElementById('photo-layout');
+            setTimeout(() => {
+                layout.classList.add('visible');
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
