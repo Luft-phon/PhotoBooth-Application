@@ -66,6 +66,7 @@ video {
     border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 0 800px 50px #FFB5C8;
+    transform: scaleX(-1);
 }
 
 .controls {
@@ -156,4 +157,17 @@ button {
     border-radius: 10px;
 }
 
+@media (max-width: 765px){
+    video {
+        width: 350px;
+    }
+  .container.grid-layout {
+    display: block; /* Hoặc flex nếu bạn muốn dọc */
+    height: auto;
+    transform: none;
+    margin: 10px;
+    padding: 10px;
+  }
+
+}
 
