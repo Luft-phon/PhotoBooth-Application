@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="result.css">
+    <link rel="icon" href="photos/icon.png" type="image/png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <title>Document</title>
 </head>
@@ -24,7 +25,7 @@
                 <div class="photoStrip-title"></div>
                 <div class="options">
                     <button id="paper">Paper</button>
-                    <button id="templete">Templete 1</button> 
+                    <button id="templete">Templete 1</button>
                     <button id="templete">Templete 1</button>
                     <button id="templete">Templete 1</button>
                     <button id="templete">Templete 1</button>
@@ -60,53 +61,23 @@
         // Xóa bộ nhớ nếu cần
         // localStorage.removeItem('photos');
 
-        // document.getElementById("download").addEventListener("click", () => {
-        //     const layout = document.getElementById("photo-layout");
-
-        //     html2canvas(layout, {
-        //         backgroundColor: "white", // giữ nguyên nền trong suốt nếu có
-        //         scale: 4, // nâng chất lượng ảnh
-        //     }).then(canvas => {
-        //         const jpgData = canvas.toDataURL("image/jpeg", 0.95);
-
-        //         const link = document.createElement("a");
-        //         link.href = jpgData;
-        //         link.download = "PhonBooth.jpg";
-        //         link.click();
-        //     });
-        //     // localStorage.removeItem('photos');
-
-        // });
         document.getElementById("download").addEventListener("click", () => {
-    const layout = document.getElementById("photo-layout");
+            const layout = document.getElementById("photo-layout");
 
-    // Tạm thời giới hạn chiều rộng canvas bằng chiều rộng màn hình
-    const targetWidth = Math.min(window.innerWidth, 430); // Giới hạn tối đa ~iPhone width
-    const scale = targetWidth / layout.offsetWidth; // Tính scale phù hợp
+            html2canvas(layout, {
+                backgroundColor: "white", // giữ nguyên nền trong suốt nếu có
+                scale: 4, // nâng chất lượng ảnh
+            }).then(canvas => {
+                const jpgData = canvas.toDataURL("image/jpeg", 0.95);
 
-    html2canvas(layout, {
-        backgroundColor: "white",
-        scale: scale, // scale phù hợp màn hình
-        width: layout.offsetWidth,
-        height: layout.offsetHeight,
-    }).then(canvas => {
-        // Resize canvas lại đúng chiều rộng màn hình
-        const resizedCanvas = document.createElement('canvas');
-        const ctx = resizedCanvas.getContext('2d');
+                const link = document.createElement("a");
+                link.href = jpgData;
+                link.download = "PhonBooth.jpg";
+                link.click();
+            });
+            // localStorage.removeItem('photos');
 
-        resizedCanvas.width = targetWidth;
-        resizedCanvas.height = canvas.height * (targetWidth / canvas.width);
-
-        ctx.drawImage(canvas, 0, 0, resizedCanvas.width, resizedCanvas.height);
-
-        const jpgData = resizedCanvas.toDataURL("image/jpeg", 0.95);
-        const link = document.createElement("a");
-        link.href = jpgData;
-        link.download = "PhonBooth.jpg";
-        link.click();
-    });
-});
-
+        });
 
         document.getElementById("paper").addEventListener('click', () => {
             document.getElementById("photo-layout").style.backgroundImage = "url('photos/paper.jpg')";

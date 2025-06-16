@@ -111,8 +111,10 @@ function takePicture() {
     canvas.width = video.videoWidth; // Đặt kích thước của canvas bằng kích thước video
     canvas.height = video.videoHeight;
 
-    context.drawImage(video, 0, 0, canvas.width, canvas.height); // Vẽ hình ảnh từ video lên canvas
-    var dataURL = canvas.toDataURL('image/jpeg'); // chuyển canvas thành ảnh
+context.save();
+  context.scale(-1, 1); // Lật ngược chiều ngang
+  context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+  context.restore();    var dataURL = canvas.toDataURL('image/jpeg'); // chuyển canvas thành ảnh
 
     var photoDiv = document.createElement('div'); // Tạo một div mới để chứa ảnh
     photoDiv.className = 'photo'; // Thêm class cho div

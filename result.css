@@ -81,26 +81,7 @@ html {
 }
 
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        height: 100%;
-    }
 
-    #photo-layout {
-        width: 90%;
-        transform: translate(0, 0);
-        /* reset transform nếu cần */
-        /* width: 460px; */
-        margin: 0px;
-    }
-
-    button#download {
-        margin: 20px 0 0 0;
-    }
-
-}
 
 button {
     font-family: "Figtree", sans-serif;
@@ -161,4 +142,25 @@ button:hover {
 
 .visible {
     padding: 100px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        height: 100%;
+    }
+
+    #photo-layout {
+        width: 90%;
+        transform: translate(0, 0);
+        /* reset transform nếu cần */
+        /* width: 460px; */
+        margin: 0px;
+    }
+
+    button#download {
+        margin: 20px 0 0 0;
+    }
+
 }
