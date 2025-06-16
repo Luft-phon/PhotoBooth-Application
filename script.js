@@ -124,7 +124,6 @@ function takePicture() {
 
 
     // sau khi chụp => lưu ảnh vào mảng
-
     capturedImages.push(dataURL);
     if (capturedImages.length === photoCount) {
         console.log(JSON.stringify(capturedImages).length / 1024, 'KB');

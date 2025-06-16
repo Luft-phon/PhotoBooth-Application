@@ -60,23 +60,53 @@
         // Xóa bộ nhớ nếu cần
         // localStorage.removeItem('photos');
 
+        // document.getElementById("download").addEventListener("click", () => {
+        //     const layout = document.getElementById("photo-layout");
+
+        //     html2canvas(layout, {
+        //         backgroundColor: "white", // giữ nguyên nền trong suốt nếu có
+        //         scale: 4, // nâng chất lượng ảnh
+        //     }).then(canvas => {
+        //         const jpgData = canvas.toDataURL("image/jpeg", 0.95);
+
+        //         const link = document.createElement("a");
+        //         link.href = jpgData;
+        //         link.download = "PhonBooth.jpg";
+        //         link.click();
+        //     });
+        //     // localStorage.removeItem('photos');
+
+        // });
         document.getElementById("download").addEventListener("click", () => {
-            const layout = document.getElementById("photo-layout");
+    const layout = document.getElementById("photo-layout");
 
-            html2canvas(layout, {
-                backgroundColor: "white", // giữ nguyên nền trong suốt nếu có
-                scale: 4, // nâng chất lượng ảnh
-            }).then(canvas => {
-                const jpgData = canvas.toDataURL("image/jpeg", 0.95);
+    // Tạm thời giới hạn chiều rộng canvas bằng chiều rộng màn hình
+    const targetWidth = Math.min(window.innerWidth, 430); // Giới hạn tối đa ~iPhone width
+    const scale = targetWidth / layout.offsetWidth; // Tính scale phù hợp
 
-                const link = document.createElement("a");
-                link.href = jpgData;
-                link.download = "PhonBooth.jpg";
-                link.click();
-            });
-            // localStorage.removeItem('photos');
+    html2canvas(layout, {
+        backgroundColor: "white",
+        scale: scale, // scale phù hợp màn hình
+        width: layout.offsetWidth,
+        height: layout.offsetHeight,
+    }).then(canvas => {
+        // Resize canvas lại đúng chiều rộng màn hình
+        const resizedCanvas = document.createElement('canvas');
+        const ctx = resizedCanvas.getContext('2d');
 
-        });
+        resizedCanvas.width = targetWidth;
+        resizedCanvas.height = canvas.height * (targetWidth / canvas.width);
+
+        ctx.drawImage(canvas, 0, 0, resizedCanvas.width, resizedCanvas.height);
+
+        const jpgData = resizedCanvas.toDataURL("image/jpeg", 0.95);
+        const link = document.createElement("a");
+        link.href = jpgData;
+        link.download = "PhonBooth.jpg";
+        link.click();
+    });
+});
+
 
         document.getElementById("paper").addEventListener('click', () => {
             document.getElementById("photo-layout").style.backgroundImage = "url('photos/paper.jpg')";

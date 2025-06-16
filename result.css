@@ -42,6 +42,7 @@ html {
     flex-direction: column;
     align-items: center;
     text-align: center;
+
     width: 430px;
     border: 1px solid rgb(174, 171, 171);
     /* transform: translate(100%, 20px); */
@@ -55,9 +56,9 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 0 800px 50px #FFB5C8;
-
     position: relative;
 }
+
 
 .title {
     position: absolute;
@@ -68,12 +69,15 @@ html {
 
 .options {
     display: grid;
-  grid-template-columns: 1fr 1fr; /* hoặc 2fr 2fr tùy bạn */
-  row-gap: 5px;   /* khoảng cách theo chiều dọc */
-  column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    /* hoặc 2fr 2fr tùy bạn */
+    row-gap: 5px;
+    /* khoảng cách theo chiều dọc */
+    column-gap: 10px;
 }
+
 .options button {
-  margin: 10px;
+    margin: 10px;
 }
 
 
@@ -91,6 +95,7 @@ html {
         /* width: 460px; */
         margin: 0px;
     }
+
     button#download {
         margin: 20px 0 0 0;
     }
@@ -126,18 +131,22 @@ button:hover {
     display: flex;
     flex-direction: column;
 }
+
 .options {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* hoặc 2fr 2fr tùy bạn */
-  row-gap: 5px;   /* khoảng cách theo chiều dọc */
-  column-gap: 10px; /* khoảng cách ngang giữa các cột */
-  justify-items: center;
-  padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* hoặc 2fr 2fr tùy bạn */
+    row-gap: 5px;
+    /* khoảng cách theo chiều dọc */
+    column-gap: 10px;
+    /* khoảng cách ngang giữa các cột */
+    justify-items: center;
+    padding: 10px;
 }
 
 .options button {
-  /* margin: 0; */
-  /* padding: 6px 12px; */
+    /* margin: 0; */
+    /* padding: 6px 12px; */
 }
 
 /* Animation khi mới load */
@@ -148,4 +157,8 @@ button:hover {
 
 #photo-layout.visible {
     transform: translateY(0);
+}
+
+.visible {
+    padding: 100px;
 }
