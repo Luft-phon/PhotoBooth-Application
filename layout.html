@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhonBooth Photo Booth | Free Online Website</title>
+    <link rel="icon" href="photos/icon.png" type="image/png">
+    <link rel="stylesheet" href="layout.css">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <h1 class="title">Choose your layout</h1>
+            <p class="content">Select a layout for your photo session. You can choose from different styles.</p>
+            <div class="imgGrid">
+                <div class="left">
+                    <img class="imgLeft" src="photos/layout 2.png" alt="">
+                    <div class="img-description">Layout A</div>
+                </div>
+                <div class="right">
+                    <img class="imgRight" src="photos/landing.png" alt="">
+                    <div class="img-description">Layout B</div>
+
+                </div>
+            </div>
+            <button class="btn">Capture your photo
+                <div class="icon-parent"><i class='bxr bx-arrow-big-right'></i></div>
+            </button>
+        </div>
+
+
+
+    </div>
+    <script>
+        var leftImg = document.querySelector('.imgLeft');
+        var rigthImg = document.querySelector('.imgRight');
+        var layout;
+        var button = document.querySelector('.btn');
+        button.disabled = true;
+
+        leftImg.addEventListener('click', () => {
+            layout = 1;
+            button.disabled = false;
+        });
+        rigthImg.addEventListener('click', () => {
+            layout = 3;
+            button.disabled = false;
+        });
+
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('layoutA', JSON.stringify(layout));
+            window.location.href = 'Photobooth.html';
+        });
+
+    </script>
+</body>
+
+</html>

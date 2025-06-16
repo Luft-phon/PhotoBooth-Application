@@ -47,18 +47,26 @@ html {
     border: 1px solid rgb(174, 171, 171);
     /* transform: translate(100%, 20px); */
     margin: 160px 0 0px 0;
-
+    padding: 20px;
     /* cho layout vào giữa để cân bằng khung hình */
     border-radius: 5px;
     box-shadow: 2px 2px 10px 3px rgb(110, 108, 108);
-    background-image: url('photos/templete.jpg');
+    /* background-image: url('photos/ig.png'); */
+    padding: 40px 15px 100px 15px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 0 800px 50px #FFB5C8;
     position: relative;
+    background-size: 150%;
+
 }
 
+#photo-layout.single-photo {
+    padding: 60px 15px 100px 15px;
+    background-size: 60%;
+    background-color: white;
+}
 
 .title {
     position: absolute;
@@ -125,10 +133,6 @@ button:hover {
     padding: 10px;
 }
 
-.options button {
-    /* margin: 0; */
-    /* padding: 6px 12px; */
-}
 
 /* Animation khi mới load */
 #photo-layout {
@@ -157,10 +161,20 @@ button:hover {
         /* reset transform nếu cần */
         /* width: 460px; */
         margin: 0px;
+                padding: 10px 35px 100px 35px;
+                        background-size: 155%;
+
+
     }
 
     button#download {
         margin: 20px 0 0 0;
+    }
+
+    #photo-layout.single-photo {
+        padding: 60px 15px 100px 15px;
+        background-size: 80%;
+        background-color: white;
     }
 
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="result.css">
     <link rel="icon" href="photos/icon.png" type="image/png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <title>Document</title>
+    <title>PhonBooth Photo Booth | Free Online Website</title>
 </head>
 
 <body>
@@ -24,14 +24,14 @@
             <div class="photostrip">
                 <div class="photoStrip-title"></div>
                 <div class="options">
-                    <button id="paper">Paper</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
-                    <button id="templete">Templete 1</button>
+                    <button class="paper">Paper</button>
+                    <button class="star">Star</button>
+                    <button class="ig">Instagram</button>
+                    <!-- <button class="templete">Templete 1</button>
+                    <button class="templete">Templete 1</button>
+                    <button class="templete">Templete 1</button>
+                    <button class="templete">Templete 1</button>
+                    <button class="templete">Templete 1</button> -->
 
                 </div>
             </div>
@@ -56,7 +56,13 @@
             img.style.margin = '10px 20px';
             gallery.appendChild(img);
         });
-        gallery.style.padding = '20px';
+
+        const photoCount = JSON.parse(localStorage.getItem('photoCount'));
+        if (photoCount == 1) {
+            gallery.classList.add('single-photo');
+        } else if (photoCount == 2 || photoCount == 3) {
+            document.querySelector('.ig').style.display = 'none';
+        }
 
         // Xóa bộ nhớ nếu cần
         // localStorage.removeItem('photos');
@@ -72,18 +78,56 @@
 
                 const link = document.createElement("a");
                 link.href = jpgData;
-                link.download = "PhonBooth.jpg";
+                link.download = "Phonbooth.jpg";
                 link.click();
             });
-            // localStorage.removeItem('photos');
+
+            // const canvas = document.createElement('canvas');
+            // const ctx = canvas.getContext('2d');
+
+            // const bg = new Image();
+            // bg.src = 'photos/ig.png';
+
+            // bg.onload = () => {
+            //     canvas.width = bg.width;
+            //     canvas.height = bg.height;
+            //     ctx.drawImage(bg, 0, 0); // nền gốc
+
+            //     // vẽ ảnh người
+            //     const img = new Image();
+            //     img.src = savedPhotos[0];
+
+
+            //     img.onload = () => {
+            //         ctx.drawImage(img, 180, 410, imgWidth, imgHeight); // điều chỉnh vị trí
+            //         const result = canvas.toDataURL('image/jpeg', 0.95);
+            //         downloadImage(result);
+            //     };
+            // };
+
+            // function downloadImage(dataUrl) {
+            //     const link = document.createElement("a");
+            //     link.href = dataUrl;
+            //     link.download = "export.jpg";
+            //     link.click();
+            // }
 
         });
 
-        document.getElementById("paper").addEventListener('click', () => {
+        document.querySelector(".paper").addEventListener('click', () => {
             document.getElementById("photo-layout").style.backgroundImage = "url('photos/paper.jpg')";
+            gallery.classList.remove('single-photo');
         });
-        document.getElementById("templete").addEventListener('click', () => {
+        document.querySelector(".star").addEventListener('click', () => {
             document.getElementById("photo-layout").style.backgroundImage = "url('photos/templete.jpg')";
+            gallery.classList.remove('single-photo');
+
+        });
+        document.querySelector(".ig").addEventListener('click', () => {
+            gallery.classList.add('single-photo');
+            gallery.style.backgroundColor = '#0B0E13';
+            document.getElementById("photo-layout").style.backgroundImage = "url('photos/ig.png')";
+
         });
         const picker = document.getElementById("colorPicker");
 

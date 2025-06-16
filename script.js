@@ -3,7 +3,7 @@ var button = document.getElementById('capture-btn');
 var photoContainer = document.getElementById('photos');
 // var timeInput = 5;
 var timeInput = document.getElementById('Time');
-var photoCount = 4;  //nhớ adjust
+const photoCount = JSON.parse(localStorage.getItem('layoutA'));
 var countDiv = document.getElementById('countdownnum');
 
 
@@ -111,10 +111,10 @@ function takePicture() {
     canvas.width = video.videoWidth; // Đặt kích thước của canvas bằng kích thước video
     canvas.height = video.videoHeight;
 
-context.save();
-  context.scale(-1, 1); // Lật ngược chiều ngang
-  context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
-  context.restore();    var dataURL = canvas.toDataURL('image/jpeg'); // chuyển canvas thành ảnh
+    context.save();
+    context.scale(-1, 1); // Lật ngược chiều ngang
+    context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+    context.restore(); var dataURL = canvas.toDataURL('image/jpeg'); // chuyển canvas thành ảnh
 
     var photoDiv = document.createElement('div'); // Tạo một div mới để chứa ảnh
     photoDiv.className = 'photo'; // Thêm class cho div
@@ -131,6 +131,7 @@ context.save();
         console.log(JSON.stringify(capturedImages).length / 1024, 'KB');
         localStorage.removeItem('photos');
         localStorage.setItem('photos', JSON.stringify(capturedImages));
+        localStorage.setItem('photoCount', JSON.stringify(photoCount));
         window.location.href = 'result.html';
     }
 }
