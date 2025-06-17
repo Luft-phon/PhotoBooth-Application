@@ -63,6 +63,7 @@ button {
     gap: 10px;
     z-index: 1;
     color: black;
+    border: 2px solid #0d0d0d;
 
 }
 

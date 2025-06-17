@@ -117,6 +117,7 @@ button {
     align-items: center;
     gap: 10px;
     color: black;
+    border: 2px solid #0d0d0d;
 
 }
 

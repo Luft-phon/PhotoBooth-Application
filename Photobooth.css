@@ -82,6 +82,8 @@ button {
     height: 50px;
     width: 200px;
     color: black;
+    border: 2px solid #0d0d0d;
+
 }
 
 #photos {
