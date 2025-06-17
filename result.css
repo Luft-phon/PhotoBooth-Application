@@ -133,7 +133,13 @@ button:hover {
     justify-items: center;
     padding: 10px;
 }
+.color {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+        font-family: "Figtree", sans-serif;
 
+}
 
 /* Animation khi mới load */
 #photo-layout {
