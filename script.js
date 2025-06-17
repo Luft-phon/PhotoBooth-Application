@@ -3,10 +3,20 @@ var button = document.getElementById('capture-btn');
 var photoContainer = document.getElementById('photos');
 // var timeInput = 5;
 var timeInput = document.getElementById('Time');
-const photoCount = JSON.parse(localStorage.getItem('layoutA'));
+const photoCount = JSON.parse(localStorage.getItem('layout'));
 var countDiv = document.getElementById('countdownnum');
 
-
+//sau khi mới load trang
+window.addEventListener('DOMContentLoaded', () => {
+    const subTitle = document.querySelector('.sub-title');
+    setTimeout(() => {
+        if (photoCount == 1) {
+            subTitle.innerText = 'Layout A';
+        } else {
+            subTitle.innerText = 'Layout B';
+        }
+    }, 100);
+});
 // Request access to the webcam  
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {  // make sure browser support getUserMedia (nhiều browser ko support như Block camera hay trang ẩn danh))
     navigator.mediaDevices.getUserMedia({ video: true })  // yêu cầu quyền truy cập camera
@@ -22,7 +32,6 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {  // make su
         });
 }
 // navigator: đối tượng cung cấp bởi Browser để truy cập các thiết bị phần cứng (vd: webcam, microphone))
-
 
 // Capture button 
 button.addEventListener("click", () => {

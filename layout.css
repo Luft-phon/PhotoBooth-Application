@@ -115,7 +115,6 @@ button {
     padding: 20px 0;
     z-index: 1;
     transition: .2s ease-in-out;
-
 }
 
 .img-description {
@@ -130,7 +129,6 @@ button {
 .imgRight:hover {
     transform: scale(1.1);
 }
-
 
 @media (max-width: 900px) {
     .btn {
