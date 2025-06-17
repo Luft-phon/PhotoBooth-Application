@@ -62,6 +62,8 @@ button {
     align-items: center;
     gap: 10px;
     z-index: 1;
+    color: black;
+
 }
 
 .btn {
@@ -71,6 +73,7 @@ button {
     text-align: center;
     border-radius: 25px;
     transition: all 0.2s ease-in-out;
+
 }
 
 .icon-parent {
@@ -94,11 +97,14 @@ button {
     justify-content: center;
     gap: 30px;
 }
-.left, .right {
+
+.left,
+.right {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .imgLeft,
 .imgRight {
     height: 20vmax;
@@ -107,11 +113,12 @@ button {
     border-radius: 10px;
     padding: 20px 0;
     z-index: 1;
-        transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
 
 }
+
 .img-description {
-        font-family: "Figtree", sans-serif;
+    font-family: "Figtree", sans-serif;
     font-size: 16px;
 }
 

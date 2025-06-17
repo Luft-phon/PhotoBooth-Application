@@ -68,6 +68,7 @@ body {
     left: 50vmin;
     transform: translate(-60%, 50%);
 }
+
 .stickers .left::before {
     content: '';
     display: block;
@@ -88,6 +89,7 @@ body {
     right: 40vmin;
     transform: translate(60%, 60%);
 }
+
 .sticker-right-3 {
     position: absolute;
     top: 0;
@@ -114,6 +116,8 @@ button {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    color: black;
+
 }
 
 .btn {
@@ -123,6 +127,7 @@ button {
     text-align: center;
     border-radius: 25px;
     transition: all 0.2s ease-in-out;
+    color: black;
 }
 
 .icon-parent {
@@ -152,9 +157,10 @@ button {
 /* ======= */
 /* mobile  */
 @media (max-width: 900px) {
-    .stickers img{
+    .stickers img {
         display: none;
     }
+
     .btn {
         width: 160px;
         height: 70px;

@@ -81,6 +81,7 @@ video {
 button {
     height: 50px;
     width: 200px;
+    color: black;
 }
 
 #photos {
@@ -159,28 +160,33 @@ button {
     border-radius: 10px;
 }
 
-@media (max-width: 765px){
+@media (max-width: 765px) {
     video {
         width: 350px;
     }
-  .container.grid-layout {
-    display: block; /* Hoặc flex nếu bạn muốn dọc */
-    height: auto;
-    transform: none;
-    margin: 10px;
-    padding: 10px;
-  }
+
+    .container.grid-layout {
+        display: block;
+        /* Hoặc flex nếu bạn muốn dọc */
+        height: auto;
+        transform: none;
+        margin: 10px;
+        padding: 10px;
+    }
 
 }
-@media (max-width: 767px){
+
+@media (max-width: 767px) {
     .container {
         position: relative;
     }
-    .container.grid-layout{
-    position: relative;
-    display: flex;
-    flex-direction: column;
+
+    .container.grid-layout {
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
+
     .photo img {
         width: 80px;
         height: 70px;
@@ -188,10 +194,10 @@ button {
 
     #photos {
         width: 350px;
-    display: flex!important;
-    flex-direction: row; 
-    gap: 0px;        
-    justify-content: flex-start; 
-    align-items: center;     
-}
+        display: flex !important;
+        flex-direction: row;
+        gap: 0px;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
